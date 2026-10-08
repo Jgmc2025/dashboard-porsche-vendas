@@ -22,7 +22,7 @@ Escolhi poucas perguntas de propósito: cada gráfico responde uma delas, tem um
 **Filtros:** família do modelo, ano do modelo, forma de pagamento, situação da entrega e estado. Eles se combinam entre si.
 
 ### Exemplo de filtro aplicado
-Família **Cayenne** + ano do modelo **2024**: 4 vendas, US$ 507,7 mil de receita e ticket médio de US$ 126,9 mil.
+Família **Cayenne** + ano do modelo **2024**: 4 vendas, US$ 507,7 mil de receita, ticket médio de US$ 126,9 mil e 25% já entregues.
 
 ![Filtro aplicado](imagens/dashboard_filtro_cayenne.png)
 
@@ -32,7 +32,7 @@ Base de partida: planilha com 100 vendas, cada campo em duas versões (cru e san
 1. **Só as colunas sanitizadas** foram usadas (`PorscheModelSanitized`, `ModelYearSanitized`, `SalesPriceSanitized`, `VehicleMileageSanitized`, `PayMethodSanitized`, `CitySanitized`, `StateSanitized`, `DeliveryStatusSanitized`, `SaleDateSanitized`).
 2. **Preço e ano como número**, sem fórmulas: tudo virou valor (preço em US$, ano como inteiro).
 3. **Dados pessoais removidos:** `customer_name` e `salesperson` não entram no arquivo, porque a base fica embutida no HTML.
-4. **Datas inválidas:** 24 registros têm `INVALID` em `SaleDateSanitized`. Foram mantidos na base (a data só aparece como `null`), mas nenhuma pergunta depende de data.
+4. **Datas inválidas:** 24 registros têm `INVALID` em `SaleDateSanitized`. No CSV tratado a data permanece `INVALID`; no HTML ela vira `null`. Nenhuma pergunta depende de data. As datas válidas vêm da planilha original e não foram alteradas nem usadas na dashboard.
 5. **Colunas derivadas:**
    - `model_family`: primeiro termo do modelo (911, 718, Cayenne, Macan, Panamera, Taycan). Os 40 modelos foram classificados sem sobra.
    - `status_group`: Entregue (41), Cancelada (7) e Em andamento (52), que reúne Pending, In Transit, Shipped, Awaiting Pickup e outros.
@@ -64,12 +64,6 @@ Usei o **Claude (Anthropic)**, um assistente com ambiente de código e navegador
     ├── dashboard_geral.png
     └── dashboard_filtro_cayenne.png
 ```
-
-## 🚀 Como publicar no GitHub Pages
-1. Crie um repositório **público** chamado `dashboard-porsche-vendas` (minúsculas e sem acento) na conta Jgmc2025.
-2. Envie o conteúdo desta pasta para a raiz do repositório.
-3. Em **Settings › Pages**, escolha *Deploy from a branch*, branch `main` e pasta `/ (root)`.
-4. Aguarde alguns minutos e confirme que https://jgmc2025.github.io/dashboard-porsche-vendas/ abre com os filtros funcionando.
 
 ## 💡 Ideias para evoluir
 - Escrever uma segunda regra de sanitização para recuperar as 24 datas `INVALID` e adicionar uma pergunta sobre evolução mensal.

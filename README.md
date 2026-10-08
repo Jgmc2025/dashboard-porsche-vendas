@@ -2,7 +2,9 @@
 
 Dashboard interativa em **HTML de arquivo único** que responde perguntas de negócio sobre 100 vendas de Porsche nos Estados Unidos, com filtros, indicadores de topo e gráficos que também funcionam como filtro (clique na barra).
 
-🔗 **Dashboard publicada:** https://SEU-USUARIO.github.io/dashboard-porsche-vendas/ *(troque pelo seu endereço depois de ativar o GitHub Pages)*
+🔗 **Dashboard publicada:** https://jgmc2025.github.io/dashboard-porsche-vendas/
+
+📦 **Repositório:** https://github.com/Jgmc2025/dashboard-porsche-vendas
 
 ![Visão geral](imagens/dashboard_geral.png)
 
@@ -64,10 +66,10 @@ Usei o **Claude (Anthropic)**, um assistente com ambiente de código e navegador
 ```
 
 ## 🚀 Como publicar no GitHub Pages
-1. Crie um repositório **público** com nome em minúsculas e sem acento (por exemplo, `dashboard-porsche-vendas`).
+1. Crie um repositório **público** chamado `dashboard-porsche-vendas` (minúsculas e sem acento) na conta Jgmc2025.
 2. Envie o conteúdo desta pasta para a raiz do repositório.
 3. Em **Settings › Pages**, escolha *Deploy from a branch*, branch `main` e pasta `/ (root)`.
-4. Aguarde alguns minutos e abra o endereço gerado. Depois, atualize o link no topo deste README.
+4. Aguarde alguns minutos e confirme que https://jgmc2025.github.io/dashboard-porsche-vendas/ abre com os filtros funcionando.
 
 ## 💡 Ideias para evoluir
 - Escrever uma segunda regra de sanitização para recuperar as 24 datas `INVALID` e adicionar uma pergunta sobre evolução mensal.
